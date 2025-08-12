@@ -1,0 +1,908 @@
+
+> vibecode-platform@0.1.0 dev
+> next dev --turbopack
+
+   ▲ Next.js 15.4.4 (Turbopack)
+   - Local:        http://localhost:3000
+   - Network:      http://192.168.1.68:3000
+   - Environments: .env.local
+
+ ✓ Starting...
+ ✓ Ready in 801ms
+ ○ Compiling / ...
+ ✓ Compiled / in 1561ms
+ GET / 200 in 1811ms
+ ✓ Compiled /api/questions/search in 131ms
+ POST /api/questions/search 200 in 471ms
+ POST /api/questions/search 200 in 61ms
+ GET / 200 in 209ms
+   Reload env: .env.local
+ ✓ Compiled in 13ms
+ ✓ Compiled / in 26ms
+ GET / 200 in 174ms
+ ✓ Compiled /auth/callback in 166ms
+ GET /auth/callback 307 in 228ms
+ GET / 200 in 38ms
+ ✓ Compiled /api/auth/sync-user in 108ms
+ POST /api/auth/sync-user 200 in 275ms
+ POST /api/auth/sync-user 200 in 273ms
+ GET /api/usage 200 in 377ms
+ GET /api/usage 200 in 192ms
+ GET /api/usage 200 in 196ms
+ GET /api/usage 200 in 199ms
+ POST /api/questions/search 200 in 110ms
+ ✓ Compiled /api/questions in 122ms
+ POST /api/questions 200 in 13180ms
+ ✓ Compiled /question/[slug] in 275ms
+ GET /question/what-is-vibecoding-and-how-can-i-start-it 200 in 887ms
+ GET / 200 in 39ms
+ POST /api/auth/sync-user 200 in 191ms
+ POST /api/auth/sync-user 200 in 208ms
+ GET /api/usage 200 in 304ms
+ GET /api/usage 200 in 162ms
+ GET /api/usage 200 in 193ms
+ GET /api/usage 200 in 167ms
+ GET /api/usage 200 in 182ms
+ POST /api/questions/search 200 in 222ms
+ POST /api/questions 200 in 9418ms
+ GET /question/what-is-the-best-vibecoding-software-to-start-with 200 in 245ms
+ GET / 200 in 57ms
+ POST /api/auth/sync-user 200 in 188ms
+ POST /api/auth/sync-user 200 in 189ms
+ GET /api/usage 200 in 330ms
+ GET /api/usage 200 in 183ms
+ GET /api/usage 200 in 207ms
+ GET /api/usage 200 in 174ms
+ GET /api/usage 200 in 198ms
+ POST /api/questions/search 200 in 67ms
+ POST /api/questions/search 200 in 63ms
+ POST /api/questions/search 200 in 56ms
+Error creating question: error: duplicate key value violates unique constraint "questions_slug_key"
+    at async POST (app/api/questions/route.ts:76:27)
+  74 |     
+  75 |     // Insert question
+> 76 |     const questionResult = await db.query(`
+     |                           ^
+  77 |       INSERT INTO questions (user_id, title, content, slug, status, category, tags)
+  78 |       VALUES ($1, $2, $3, $4, 'published', $5, $6)
+  79 |       RETURNING * {
+  length: 251,
+  severity: 'ERROR',
+  code: '23505',
+  detail: 'Key (slug)=(what-is-the-best-vibecoding-software-to-start-with) already exists.',
+  hint: undefined,
+  position: undefined,
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: 'public',
+  table: 'questions',
+  column: undefined,
+  dataType: undefined,
+  constraint: 'questions_slug_key',
+  file: 'nbtinsert.c',
+  line: '666',
+  routine: '_bt_check_unique'
+}
+ POST /api/questions 500 in 10252ms
+Error creating question: error: duplicate key value violates unique constraint "questions_slug_key"
+    at async POST (app/api/questions/route.ts:76:27)
+  74 |     
+  75 |     // Insert question
+> 76 |     const questionResult = await db.query(`
+     |                           ^
+  77 |       INSERT INTO questions (user_id, title, content, slug, status, category, tags)
+  78 |       VALUES ($1, $2, $3, $4, 'published', $5, $6)
+  79 |       RETURNING * {
+  length: 251,
+  severity: 'ERROR',
+  code: '23505',
+  detail: 'Key (slug)=(what-is-the-best-vibecoding-software-to-start-with) already exists.',
+  hint: undefined,
+  position: undefined,
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: 'public',
+  table: 'questions',
+  column: undefined,
+  dataType: undefined,
+  constraint: 'questions_slug_key',
+  file: 'nbtinsert.c',
+  line: '666',
+  routine: '_bt_check_unique'
+}
+ POST /api/questions 500 in 10786ms
+ ✓ Compiled in 127ms
+ ✓ Compiled in 100ms
+ GET / 200 in 119ms
+ GET / 200 in 26ms
+ GET / 200 in 23ms
+ GET / 200 in 28ms
+ ✓ Compiled in 27ms
+ GET / 200 in 95ms
+ GET / 200 in 37ms
+ GET / 200 in 20ms
+ GET / 200 in 21ms
+ ✓ Compiled /my-questions in 295ms
+ GET /my-questions 200 in 469ms
+ POST /api/auth/sync-user 200 in 243ms
+ GET /api/usage 200 in 512ms
+ GET /api/questions?user_only=true 200 in 381ms
+ GET /question/what-is-the-best-vibecoding-software-to-start-with 200 in 245ms
+ GET / 200 in 38ms
+ GET /api/usage 200 in 224ms
+ GET /api/usage 200 in 205ms
+ GET /api/usage 200 in 179ms
+ POST /api/questions/search 200 in 203ms
+ POST /api/questions 200 in 11927ms
+ GET /question/how-can-i-vibecode-like-a-legend 200 in 324ms
+ GET / 200 in 40ms
+ POST /api/auth/sync-user 200 in 188ms
+ POST /api/auth/sync-user 200 in 196ms
+ GET /api/usage 200 in 273ms
+ GET /api/usage 200 in 173ms
+ GET /api/usage 200 in 190ms
+ GET /api/usage 200 in 173ms
+ GET /api/usage 200 in 183ms
+ GET /my-questions 200 in 58ms
+ POST /api/auth/sync-user 200 in 45ms
+ GET /api/usage 200 in 157ms
+ GET /api/questions?user_only=true 200 in 310ms
+ GET / 200 in 43ms
+ GET /api/usage 200 in 216ms
+ GET /api/usage 200 in 150ms
+ GET /api/usage 200 in 201ms
+ ✓ Compiled /explore in 246ms
+ GET /explore 200 in 285ms
+ GET /api/questions?limit=20 200 in 53ms
+ GET / 200 in 40ms
+ POST /api/auth/sync-user 200 in 52ms
+ POST /api/auth/sync-user 200 in 53ms
+ GET /api/usage 200 in 236ms
+ GET /api/usage 200 in 145ms
+ GET /api/usage 200 in 179ms
+ GET /api/usage 200 in 194ms
+ GET /api/usage 200 in 151ms
+ GET /api/usage 200 in 522ms
+ GET /api/usage 200 in 217ms
+ POST /api/auth/sync-user 200 in 397ms
+ POST /api/auth/sync-user 200 in 398ms
+Error getting user tier info: error: column "tier" does not exist
+    at async getUserTierInfo (lib/middleware/tierCheck.ts:103:19)
+    at async GET (app/api/usage/route.ts:21:21)
+  101 | export async function getUserTierInfo(userId: string) {
+  102 |   try {
+> 103 |     const result = await db.query(`
+      |                   ^
+  104 |       SELECT 
+  105 |         tier,
+  106 |         subscription_status, {
+  length: 104,
+  severity: 'ERROR',
+  code: '42703',
+  detail: undefined,
+  hint: undefined,
+  position: '24',
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'parse_relation.c',
+  line: '3716',
+  routine: 'errorMissingColumn'
+}
+ GET /api/usage 404 in 776ms
+Error getting user tier info: error: column "tier" does not exist
+    at async getUserTierInfo (lib/middleware/tierCheck.ts:103:19)
+    at async GET (app/api/usage/route.ts:21:21)
+  101 | export async function getUserTierInfo(userId: string) {
+  102 |   try {
+> 103 |     const result = await db.query(`
+      |                   ^
+  104 |       SELECT 
+  105 |         tier,
+  106 |         subscription_status, {
+  length: 104,
+  severity: 'ERROR',
+  code: '42703',
+  detail: undefined,
+  hint: undefined,
+  position: '24',
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'parse_relation.c',
+  line: '3716',
+  routine: 'errorMissingColumn'
+}
+ GET /api/usage 404 in 145ms
+ GET / 200 in 226ms
+ POST /api/auth/sync-user 200 in 181ms
+ POST /api/auth/sync-user 200 in 184ms
+Error getting user tier info: error: column "tier" does not exist
+    at async getUserTierInfo (lib/middleware/tierCheck.ts:103:19)
+    at async GET (app/api/usage/route.ts:21:21)
+  101 | export async function getUserTierInfo(userId: string) {
+  102 |   try {
+> 103 |     const result = await db.query(`
+      |                   ^
+  104 |       SELECT 
+  105 |         tier,
+  106 |         subscription_status, {
+  length: 104,
+  severity: 'ERROR',
+  code: '42703',
+  detail: undefined,
+  hint: undefined,
+  position: '24',
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'parse_relation.c',
+  line: '3716',
+  routine: 'errorMissingColumn'
+}
+ GET /api/usage 404 in 316ms
+Error getting user tier info: error: column "tier" does not exist
+    at async getUserTierInfo (lib/middleware/tierCheck.ts:103:19)
+    at async GET (app/api/usage/route.ts:21:21)
+  101 | export async function getUserTierInfo(userId: string) {
+  102 |   try {
+> 103 |     const result = await db.query(`
+      |                   ^
+  104 |       SELECT 
+  105 |         tier,
+  106 |         subscription_status, {
+  length: 104,
+  severity: 'ERROR',
+  code: '42703',
+  detail: undefined,
+  hint: undefined,
+  position: '24',
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'parse_relation.c',
+  line: '3716',
+  routine: 'errorMissingColumn'
+}
+ GET /api/usage 404 in 145ms
+Error getting user tier info: error: column "tier" does not exist
+    at async getUserTierInfo (lib/middleware/tierCheck.ts:103:19)
+    at async GET (app/api/usage/route.ts:21:21)
+  101 | export async function getUserTierInfo(userId: string) {
+  102 |   try {
+> 103 |     const result = await db.query(`
+      |                   ^
+  104 |       SELECT 
+  105 |         tier,
+  106 |         subscription_status, {
+  length: 104,
+  severity: 'ERROR',
+  code: '42703',
+  detail: undefined,
+  hint: undefined,
+  position: '24',
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'parse_relation.c',
+  line: '3716',
+  routine: 'errorMissingColumn'
+}
+ GET /api/usage 404 in 210ms
+ ✓ Compiled /favicon.ico in 127ms
+Error getting user tier info: error: column "tier" does not exist
+    at async getUserTierInfo (lib/middleware/tierCheck.ts:103:19)
+    at async GET (app/api/usage/route.ts:21:21)
+  101 | export async function getUserTierInfo(userId: string) {
+  102 |   try {
+> 103 |     const result = await db.query(`
+      |                   ^
+  104 |       SELECT 
+  105 |         tier,
+  106 |         subscription_status, {
+  length: 104,
+  severity: 'ERROR',
+  code: '42703',
+  detail: undefined,
+  hint: undefined,
+  position: '24',
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'parse_relation.c',
+  line: '3716',
+  routine: 'errorMissingColumn'
+}
+ GET /api/usage 404 in 285ms
+ GET /favicon.ico?favicon.45db1c09.ico 200 in 396ms
+ POST /api/auth/sync-user 200 in 187ms
+ POST /api/auth/sync-user 200 in 190ms
+ ✓ Compiled /api/subscriptions/create-checkout in 224ms
+Error getting user tier info: error: column "tier" does not exist
+    at async getUserTierInfo (lib/middleware/tierCheck.ts:103:19)
+    at async GET (app/api/usage/route.ts:21:21)
+  101 | export async function getUserTierInfo(userId: string) {
+  102 |   try {
+> 103 |     const result = await db.query(`
+      |                   ^
+  104 |       SELECT 
+  105 |         tier,
+  106 |         subscription_status, {
+  length: 104,
+  severity: 'ERROR',
+  code: '42703',
+  detail: undefined,
+  hint: undefined,
+  position: '24',
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'parse_relation.c',
+  line: '3716',
+  routine: 'errorMissingColumn'
+}
+ GET /api/usage 404 in 300ms
+Error getting user tier info: error: column "tier" does not exist
+    at async getUserTierInfo (lib/middleware/tierCheck.ts:103:19)
+    at async GET (app/api/usage/route.ts:21:21)
+  101 | export async function getUserTierInfo(userId: string) {
+  102 |   try {
+> 103 |     const result = await db.query(`
+      |                   ^
+  104 |       SELECT 
+  105 |         tier,
+  106 |         subscription_status, {
+  length: 104,
+  severity: 'ERROR',
+  code: '42703',
+  detail: undefined,
+  hint: undefined,
+  position: '24',
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'parse_relation.c',
+  line: '3716',
+  routine: 'errorMissingColumn'
+}
+ GET /api/usage 404 in 231ms
+Error creating checkout session: [Error: Invalid API Key provided: sk_test_*********here] {
+  type: 'StripeAuthenticationError',
+  raw: [Object],
+  rawType: 'invalid_request_error',
+  code: undefined,
+  doc_url: undefined,
+  param: undefined,
+  detail: undefined,
+  headers: [Object],
+  requestId: undefined,
+  statusCode: 401,
+  userMessage: undefined,
+  charge: undefined,
+  decline_code: undefined,
+  payment_intent: undefined,
+  payment_method: undefined,
+  payment_method_type: undefined,
+  setup_intent: undefined,
+  source: undefined
+}
+ POST /api/subscriptions/create-checkout 500 in 728ms
+ POST /api/auth/sync-user 200 in 184ms
+ POST /api/auth/sync-user 200 in 187ms
+Error creating checkout session: [Error: Invalid API Key provided: sk_test_*********here] {
+  type: 'StripeAuthenticationError',
+  raw: [Object],
+  rawType: 'invalid_request_error',
+  code: undefined,
+  doc_url: undefined,
+  param: undefined,
+  detail: undefined,
+  headers: [Object],
+  requestId: undefined,
+  statusCode: 401,
+  userMessage: undefined,
+  charge: undefined,
+  decline_code: undefined,
+  payment_intent: undefined,
+  payment_method: undefined,
+  payment_method_type: undefined,
+  setup_intent: undefined,
+  source: undefined
+}
+ POST /api/subscriptions/create-checkout 500 in 239ms
+Error getting user tier info: error: column "tier" does not exist
+    at async getUserTierInfo (lib/middleware/tierCheck.ts:103:19)
+    at async GET (app/api/usage/route.ts:21:21)
+  101 | export async function getUserTierInfo(userId: string) {
+  102 |   try {
+> 103 |     const result = await db.query(`
+      |                   ^
+  104 |       SELECT 
+  105 |         tier,
+  106 |         subscription_status, {
+  length: 104,
+  severity: 'ERROR',
+  code: '42703',
+  detail: undefined,
+  hint: undefined,
+  position: '24',
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'parse_relation.c',
+  line: '3716',
+  routine: 'errorMissingColumn'
+}
+ GET /api/usage 404 in 300ms
+Error getting user tier info: error: column "tier" does not exist
+    at async getUserTierInfo (lib/middleware/tierCheck.ts:103:19)
+    at async GET (app/api/usage/route.ts:21:21)
+  101 | export async function getUserTierInfo(userId: string) {
+  102 |   try {
+> 103 |     const result = await db.query(`
+      |                   ^
+  104 |       SELECT 
+  105 |         tier,
+  106 |         subscription_status, {
+  length: 104,
+  severity: 'ERROR',
+  code: '42703',
+  detail: undefined,
+  hint: undefined,
+  position: '24',
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'parse_relation.c',
+  line: '3716',
+  routine: 'errorMissingColumn'
+}
+ GET /api/usage 404 in 187ms
+ GET /my-questions 200 in 87ms
+ POST /api/auth/sync-user 200 in 258ms
+Error getting user tier info: error: column "tier" does not exist
+    at async getUserTierInfo (lib/middleware/tierCheck.ts:103:19)
+    at async GET (app/api/usage/route.ts:21:21)
+  101 | export async function getUserTierInfo(userId: string) {
+  102 |   try {
+> 103 |     const result = await db.query(`
+      |                   ^
+  104 |       SELECT 
+  105 |         tier,
+  106 |         subscription_status, {
+  length: 104,
+  severity: 'ERROR',
+  code: '42703',
+  detail: undefined,
+  hint: undefined,
+  position: '24',
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'parse_relation.c',
+  line: '3716',
+  routine: 'errorMissingColumn'
+}
+ GET /api/usage 404 in 405ms
+ GET /api/questions?user_only=true 200 in 415ms
+ GET / 200 in 65ms
+ POST /api/auth/sync-user 200 in 59ms
+ POST /api/auth/sync-user 200 in 173ms
+Error getting user tier info: error: column "tier" does not exist
+    at async getUserTierInfo (lib/middleware/tierCheck.ts:103:19)
+    at async GET (app/api/usage/route.ts:21:21)
+  101 | export async function getUserTierInfo(userId: string) {
+  102 |   try {
+> 103 |     const result = await db.query(`
+      |                   ^
+  104 |       SELECT 
+  105 |         tier,
+  106 |         subscription_status, {
+  length: 104,
+  severity: 'ERROR',
+  code: '42703',
+  detail: undefined,
+  hint: undefined,
+  position: '24',
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'parse_relation.c',
+  line: '3716',
+  routine: 'errorMissingColumn'
+}
+ GET /api/usage 404 in 244ms
+Error getting user tier info: error: column "tier" does not exist
+    at async getUserTierInfo (lib/middleware/tierCheck.ts:103:19)
+    at async GET (app/api/usage/route.ts:21:21)
+  101 | export async function getUserTierInfo(userId: string) {
+  102 |   try {
+> 103 |     const result = await db.query(`
+      |                   ^
+  104 |       SELECT 
+  105 |         tier,
+  106 |         subscription_status, {
+  length: 104,
+  severity: 'ERROR',
+  code: '42703',
+  detail: undefined,
+  hint: undefined,
+  position: '24',
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'parse_relation.c',
+  line: '3716',
+  routine: 'errorMissingColumn'
+}
+ GET /api/usage 404 in 174ms
+Error getting user tier info: error: column "tier" does not exist
+    at async getUserTierInfo (lib/middleware/tierCheck.ts:103:19)
+    at async GET (app/api/usage/route.ts:21:21)
+  101 | export async function getUserTierInfo(userId: string) {
+  102 |   try {
+> 103 |     const result = await db.query(`
+      |                   ^
+  104 |       SELECT 
+  105 |         tier,
+  106 |         subscription_status, {
+  length: 104,
+  severity: 'ERROR',
+  code: '42703',
+  detail: undefined,
+  hint: undefined,
+  position: '24',
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'parse_relation.c',
+  line: '3716',
+  routine: 'errorMissingColumn'
+}
+ GET /api/usage 404 in 297ms
+ GET /explore 200 in 63ms
+ GET /api/questions?limit=20 200 in 46ms
+ GET / 200 in 43ms
+ POST /api/auth/sync-user 200 in 210ms
+ POST /api/auth/sync-user 200 in 219ms
+Error getting user tier info: error: column "tier" does not exist
+    at async getUserTierInfo (lib/middleware/tierCheck.ts:103:19)
+    at async GET (app/api/usage/route.ts:21:21)
+  101 | export async function getUserTierInfo(userId: string) {
+  102 |   try {
+> 103 |     const result = await db.query(`
+      |                   ^
+  104 |       SELECT 
+  105 |         tier,
+  106 |         subscription_status, {
+  length: 104,
+  severity: 'ERROR',
+  code: '42703',
+  detail: undefined,
+  hint: undefined,
+  position: '24',
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'parse_relation.c',
+  line: '3716',
+  routine: 'errorMissingColumn'
+}
+ GET /api/usage 404 in 339ms
+Error getting user tier info: error: column "tier" does not exist
+    at async getUserTierInfo (lib/middleware/tierCheck.ts:103:19)
+    at async GET (app/api/usage/route.ts:21:21)
+  101 | export async function getUserTierInfo(userId: string) {
+  102 |   try {
+> 103 |     const result = await db.query(`
+      |                   ^
+  104 |       SELECT 
+  105 |         tier,
+  106 |         subscription_status, {
+  length: 104,
+  severity: 'ERROR',
+  code: '42703',
+  detail: undefined,
+  hint: undefined,
+  position: '24',
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'parse_relation.c',
+  line: '3716',
+  routine: 'errorMissingColumn'
+}
+ GET /api/usage 404 in 136ms
+Error getting user tier info: error: column "tier" does not exist
+    at async getUserTierInfo (lib/middleware/tierCheck.ts:103:19)
+    at async GET (app/api/usage/route.ts:21:21)
+  101 | export async function getUserTierInfo(userId: string) {
+  102 |   try {
+> 103 |     const result = await db.query(`
+      |                   ^
+  104 |       SELECT 
+  105 |         tier,
+  106 |         subscription_status, {
+  length: 104,
+  severity: 'ERROR',
+  code: '42703',
+  detail: undefined,
+  hint: undefined,
+  position: '24',
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'parse_relation.c',
+  line: '3716',
+  routine: 'errorMissingColumn'
+}
+ GET /api/usage 404 in 136ms
+Error getting user tier info: error: column "tier" does not exist
+    at async getUserTierInfo (lib/middleware/tierCheck.ts:103:19)
+    at async GET (app/api/usage/route.ts:21:21)
+  101 | export async function getUserTierInfo(userId: string) {
+  102 |   try {
+> 103 |     const result = await db.query(`
+      |                   ^
+  104 |       SELECT 
+  105 |         tier,
+  106 |         subscription_status, {
+  length: 104,
+  severity: 'ERROR',
+  code: '42703',
+  detail: undefined,
+  hint: undefined,
+  position: '24',
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'parse_relation.c',
+  line: '3716',
+  routine: 'errorMissingColumn'
+}
+ GET /api/usage 404 in 229ms
+Error getting user tier info: error: column "tier" does not exist
+    at async getUserTierInfo (lib/middleware/tierCheck.ts:103:19)
+    at async GET (app/api/usage/route.ts:21:21)
+  101 | export async function getUserTierInfo(userId: string) {
+  102 |   try {
+> 103 |     const result = await db.query(`
+      |                   ^
+  104 |       SELECT 
+  105 |         tier,
+  106 |         subscription_status, {
+  length: 104,
+  severity: 'ERROR',
+  code: '42703',
+  detail: undefined,
+  hint: undefined,
+  position: '24',
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'parse_relation.c',
+  line: '3716',
+  routine: 'errorMissingColumn'
+}
+ GET /api/usage 404 in 288ms
+ ✓ Compiled in 43ms
+ ✓ Compiled in 312ms
+ GET /api/usage 200 in 582ms
+ GET /api/usage 200 in 203ms
+ POST /api/questions/search 200 in 237ms
+ POST /api/questions 200 in 10816ms
+ ✓ Compiled /question/[slug] in 32ms
+ GET /question/tell-me-how-to-get-started-on-vibecoding-and-the-best-apps-to-use 200 in 464ms
+ GET /question/tell-me-how-to-get-started-on-vibecoding-and-the-best-apps-to-use 200 in 151ms
+ GET /favicon.ico?favicon.45db1c09.ico 200 in 236ms
+ GET / 200 in 120ms
+ POST /api/auth/sync-user 200 in 217ms
+ POST /api/auth/sync-user 200 in 223ms
+ GET /api/usage 200 in 301ms
+ GET /api/usage 200 in 212ms
+ GET /api/usage 200 in 190ms
+ GET /api/usage 200 in 217ms
+ GET /api/usage 200 in 219ms
+ POST /api/questions/search 200 in 199ms
+ POST /api/questions 200 in 18368ms
+ GET /question/how-can-i-get-started-with-vibecoding-while-also-staying-true-to-understabning-the-basics-of-coding 200 in 259ms
+ GET /question/how-can-i-get-started-with-vibecoding-while-also-staying-true-to-understabning-the-basics-of-coding 200 in 272ms
+ GET /favicon.ico?favicon.45db1c09.ico 200 in 245ms
+ GET / 200 in 40ms
+ POST /api/auth/sync-user 200 in 167ms
+ POST /api/auth/sync-user 200 in 158ms
+ GET /api/usage 200 in 358ms
+ GET /api/usage 200 in 192ms
+ GET /api/usage 200 in 181ms
+ GET /api/usage 200 in 189ms
+ GET /api/usage 200 in 178ms
+ POST /api/questions/search 200 in 160ms
+ POST /api/questions/search 200 in 68ms
+JSON parsing error: SyntaxError: Bad control character in string literal in JSON at position 52 (line 2 column 51)
+    at JSON.parse (<anonymous>)
+    at generateAnswer (lib/claude-api.ts:69:28)
+    at async POST (app/api/questions/route.ts:73:19)
+  67 |       // Clean the response text first
+  68 |       const cleanedResponse = responseText.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();
+> 69 |       parsedResponse = JSON.parse(cleanedResponse);
+     |                            ^
+  70 |       
+  71 |       // Ensure content is a string and clean any object references
+  72 |       if (typeof parsedResponse.content !== 'string') {
+Raw response: {
+  "content": "# How to Become an Awesome Vibecoder
+
+Vibecoding is an emerging development approach that combines AI tools, modern frameworks, and efficient workflows to accelerate development. Here's a comprehensive guide to mastering it:
+
+## 1. Master the Core Tools
+
+### AI Assistants
+- Learn to effectively prompt Claude, GitHub Copilot, and other AI tools
+- Practice writing clear, specific prompts
+- Understand each AI's strengths and limitations
+
+### Code Editors & Extensions
+- Set up Cursor.sh with custom shortcuts
+- Configure VSCode with AI extensions
+- Learn keyboard shortcuts for rapid development
+
+### Development Environments
+- Get comfortable with Replit for quick prototypes
+- Use Bolt.new for rapid project initialization
+- Set up local development environment with proper configurations
+
+## 2. Develop Core Skills
+
+```javascript
+// Example: Using Claude API effectively
+const getCodeSuggestion = async (prompt) => {
+  const response = await claude.complete({
+    prompt: `I need code that ${prompt}. 
+    Please provide:
+    1. Working implementation
+    2. Error handling
+    3. Best practices
+    4. Performance considerations`,
+    max_tokens: 500
+  });
+  return response;
+};
+```
+
+## 3. Best Practices
+
+- Always validate AI-generated code
+- Maintain consistent code style
+- Document your prompts and workflows
+- Build reusable components and snippets
+- Regular commits and clear commit messages
+
+## 4. Common Pitfalls to Avoid
+
+- Over-relying on AI without understanding the code
+- Neglecting security best practices
+- Not testing AI-generated code thoroughly
+- Ignoring performance implications
+- Poor prompt engineering
+
+## 5. Learning Path
+
+1. Start with basic AI tools integration
+2. Learn modern frameworks (Next.js, React)
+3. Master deployment platforms
+4. Practice rapid prototyping
+5. Build real projects combining all tools
+
+## 6. Resources
+
+- [Cursor.sh Documentation](https://cursor.sh/docs)
+- [Claude API Reference](https://docs.anthropic.com/claude/reference)
+- [Bolt.new Tutorials](https://bolt.new)
+- [Replit Learning Resources](https://docs.replit.com)
+
+Remember: Vibecoding is about finding the right balance between AI assistance and human creativity. Focus on understanding the fundamentals while leveraging AI tools to enhance your productivity.",
+  "category": "general",
+  "tags": ["vibe-coding", "ai-coding", "claude", "cursor", "bolt.new", "development", "ai"],
+  "seoTitle": "Become an Awesome Vibecoder: Complete Guide to AI-Enhanced Development",
+  "seoDescription": "Learn how to master vibecoding with AI tools, modern frameworks, and efficient workflows. Comprehensive guide covering Claude, Cursor, Bolt.new, and best practices for AI-enhanced development."
+}
+ POST /api/questions 200 in 13106ms
+ GET /question/whats-the-best-way-to-become-an-awesome-vibecoder 200 in 212ms
+[?25h
