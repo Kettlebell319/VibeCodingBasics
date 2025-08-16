@@ -30,14 +30,14 @@ export async function GET(request: NextRequest) {
       questionsUsed: tierInfo.questionsUsed,
       questionsLimit: tierInfo.questionsLimit,
       canAskQuestion: tierInfo.canAskQuestion,
-      upgradeRequired: !tierInfo.canAskQuestion && tierInfo.tier === 'explorer',
+      upgradeRequired: !tierInfo.canAskQuestion && tierInfo.tier === 'free',
       subscriptionExpiresAt: tierInfo.subscriptionExpiresAt,
       nextResetDate: tierInfo.nextResetDate,
       // Legacy fields for backward compatibility
       canAsk: tierInfo.canAskQuestion,
-      questionsRemaining: tierInfo.tier === 'explorer' ? 
+      questionsRemaining: tierInfo.tier === 'free' ? 
         Math.max(0, tierInfo.questionsLimit - tierInfo.questionsUsed) : 'unlimited',
-      isPremium: tierInfo.tier !== 'explorer'
+      isPremium: tierInfo.tier === 'pro'
     });
   } catch (error) {
     console.error('Error fetching usage:', error);

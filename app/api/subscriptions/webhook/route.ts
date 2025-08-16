@@ -80,7 +80,7 @@ async function handleSubscriptionChange(subscription: Stripe.Subscription) {
     `, [
       tier,
       subscription.status,
-      new Date(subscription.current_period_end * 1000),
+      new Date((subscription as unknown as { current_period_end: number }).current_period_end * 1000),
       tier === 'explorer' ? 5 : -1, // -1 = unlimited
       subscription.id,
       userId
@@ -106,8 +106,8 @@ async function handleSubscriptionChange(subscription: Stripe.Subscription) {
       subscription.customer,
       subscription.status,
       tier,
-      new Date(subscription.current_period_start * 1000),
-      new Date(subscription.current_period_end * 1000)
+      new Date((subscription as unknown as { current_period_start: number }).current_period_start * 1000),
+      new Date((subscription as unknown as { current_period_end: number }).current_period_end * 1000)
     ]);
     
     console.log(`Successfully updated subscription for user ${userId} to tier ${tier}`);

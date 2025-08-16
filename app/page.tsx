@@ -18,9 +18,9 @@ export default function HomePage() {
   const [user, setUser] = useState(null);
   const [usage, setUsage] = useState({ 
     questionsUsed: 0, 
-    questionsRemaining: 3, 
-    questionsLimit: 5,
-    tier: 'explorer' as 'explorer' | 'builder' | 'expert',
+    questionsRemaining: 27, 
+    questionsLimit: 30,
+    tier: 'free' as 'free' | 'pro',
     canAskQuestion: true,
     upgradeRequired: false
   });

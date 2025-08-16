@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { stripe, getTierConfig, TierType } from '@/lib/stripe';
-import { createClient } from '@/lib/supabase';
+import { supabaseAdmin } from '@/lib/supabase';
 import { headers } from 'next/headers';
 
 export async function POST(req: NextRequest) {
@@ -25,8 +25,7 @@ export async function POST(req: NextRequest) {
     }
     
     // Get user details from Supabase
-    const supabase = createClient();
-    const { data: user, error: userError } = await supabase
+    const { data: user, error: userError } = await supabaseAdmin
       .from('users')
       .select('id, email, full_name')
       .eq('id', userId)

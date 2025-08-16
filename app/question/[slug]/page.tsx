@@ -7,6 +7,7 @@ import Link from 'next/link';
 import db from '@/lib/db';
 import StructuredData from '@/components/structured-data';
 import ShareButtons from '@/components/share-buttons';
+// import CommentSection from '@/components/comments/comment-section'; // Temporarily disabled
 
 function processMarkdownToHtml(markdown: string): string {
   return markdown
@@ -202,13 +203,29 @@ export default async function QuestionPage({ params }: { params: Promise<{ slug:
     <>
       <StructuredData data={structuredData} />
       <div className="min-h-screen bg-gray-50">
-      {/* Header */}
-      <div className="border-b bg-white">
-        <div className="container mx-auto px-4 py-4">
-          <Link href="/">
-            <Button variant="ghost" size="sm" className="mb-4">
+      {/* Navigation */}
+      <div className="border-b bg-white/80 backdrop-blur-sm">
+        <div className="container mx-auto px-4 py-4 flex items-center justify-between">
+          <div className="flex items-center space-x-6">
+            <Link href="/" className="flex items-center space-x-2">
+              <span className="text-xl font-bold text-gray-900">VibeCoding</span>
+            </Link>
+            <nav className="hidden md:flex items-center space-x-4">
+              <Link href="/" className="text-gray-600 hover:text-blue-600 font-medium transition-colors">
+                Home
+              </Link>
+              <Link href="/blog" className="text-gray-600 hover:text-blue-600 font-medium transition-colors">
+                Blog
+              </Link>
+              <Link href="/subscription" className="text-gray-600 hover:text-blue-600 font-medium transition-colors">
+                Pricing
+              </Link>
+            </nav>
+          </div>
+          <Link href="/blog">
+            <Button variant="ghost" size="sm">
               <ArrowLeft className="h-4 w-4 mr-2" />
-              Back to search
+              Back
             </Button>
           </Link>
         </div>
@@ -292,6 +309,12 @@ export default async function QuestionPage({ params }: { params: Promise<{ slug:
             </CardContent>
           </Card>
         </div>
+
+        {/* Comments Section - Temporarily disabled for launch simplicity */}
+        {/* <CommentSection 
+          questionId={question.id}
+          questionTitle={question.title}
+        /> */}
       </div>
     </div>
     </>

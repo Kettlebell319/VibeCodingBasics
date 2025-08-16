@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import db from '@/lib/db';
-import { generateAnswer } from '@/lib/claude-mock'; // Temporarily using mock for clean testing
+import { generateAnswer } from '@/lib/claude-api'; // Using real Claude API for quality responses
 import { checkQuestionLimit, incrementQuestionUsage } from '@/lib/middleware/tierCheck';
 import { createClient } from '@supabase/supabase-js';
 

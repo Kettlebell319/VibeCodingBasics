@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from '@/components/ui/dialog';
-import { Check, X } from 'lucide-react';
+import { Check } from 'lucide-react';
 import { createClient } from '@supabase/supabase-js';
 
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!);
@@ -77,7 +77,7 @@ export default function UpgradeModal({ isOpen, onClose, currentUsage }: UpgradeM
         <DialogHeader>
           <DialogTitle>Upgrade Your Plan</DialogTitle>
           <DialogDescription>
-            You've used {currentUsage.questionsUsed} of {currentUsage.questionsLimit} free questions this month.
+            You&apos;ve used {currentUsage.questionsUsed} of {currentUsage.questionsLimit} free questions this month.
             Upgrade for unlimited AI-powered answers!
           </DialogDescription>
         </DialogHeader>

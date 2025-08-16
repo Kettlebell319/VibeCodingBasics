@@ -17,7 +17,7 @@ interface QuestionLimit {
 
 export async function checkTierAccess(
   userId: string, 
-  requiredTier: 'explorer' | 'builder' | 'expert'
+  requiredTier: 'free' | 'pro'
 ): Promise<TierAccess> {
   try {
     const result = await db.query(
@@ -26,11 +26,11 @@ export async function checkTierAccess(
     );
     
     if (result.rows.length === 0) {
-      return { hasAccess: false, currentTier: 'explorer', upgradeRequired: true };
+      return { hasAccess: false, currentTier: 'free', upgradeRequired: true };
     }
     
     const user = result.rows[0];
-    const tierOrder = { explorer: 0, builder: 1, expert: 2 };
+    const tierOrder = { free: 0, pro: 1 };
     const hasAccess = tierOrder[user.tier] >= tierOrder[requiredTier];
     
     return {
@@ -40,7 +40,7 @@ export async function checkTierAccess(
     };
   } catch (error) {
     console.error('Error checking tier access:', error);
-    return { hasAccess: false, currentTier: 'explorer', upgradeRequired: true };
+    return { hasAccess: false, currentTier: 'free', upgradeRequired: true };
   }
 }
 
@@ -61,7 +61,7 @@ export async function checkQuestionLimit(userId: string): Promise<QuestionLimit>
     `, [userId]);
     
     if (result.rows.length === 0) {
-      return { canAsk: false, questionsUsed: 0, questionsLimit: 5, resetDate: '' };
+      return { canAsk: false, questionsUsed: 0, questionsLimit: 30, resetDate: '' };
     }
     
     const user = result.rows[0];
@@ -76,8 +76,8 @@ export async function checkQuestionLimit(userId: string): Promise<QuestionLimit>
     ];
     const isAdmin = adminEmails.includes(user.email);
     
-    // Admins, builders and expert tiers have unlimited questions
-    const canAsk = isAdmin || user.tier === 'builder' || user.tier === 'expert' || 
+    // Admins and pro tier have unlimited questions
+    const canAsk = isAdmin || user.tier === 'pro' || 
                    user.questions_used_this_month < user.monthly_limit;
     
     // Calculate next reset date
@@ -87,12 +87,12 @@ export async function checkQuestionLimit(userId: string): Promise<QuestionLimit>
     return {
       canAsk,
       questionsUsed: isAdmin ? 0 : (user.questions_used_this_month || 0), // Show 0 usage for admins
-      questionsLimit: isAdmin || user.tier !== 'explorer' ? -1 : user.monthly_limit, // -1 = unlimited for admins and paid tiers
+      questionsLimit: isAdmin || user.tier === 'pro' ? -1 : user.monthly_limit, // -1 = unlimited for admins and pro tier
       resetDate: nextMonth.toISOString()
     };
   } catch (error) {
     console.error('Error checking question limit:', error);
-    return { canAsk: false, questionsUsed: 0, questionsLimit: 5, resetDate: '' };
+    return { canAsk: false, questionsUsed: 0, questionsLimit: 30, resetDate: '' };
   }
 }
 
@@ -113,8 +113,8 @@ export async function incrementQuestionUsage(userId: string): Promise<void> {
     const user = userResult.rows[0];
     const isAdmin = adminEmails.includes(user.email);
     
-    // Only increment for explorer tier users who are NOT admin
-    if (!isAdmin && user.tier === 'explorer') {
+    // Only increment for free tier users who are NOT admin
+    if (!isAdmin && user.tier === 'free') {
       await db.query(`
         UPDATE users 
         SET questions_used_this_month = questions_used_this_month + 1 

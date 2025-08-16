@@ -8,46 +8,31 @@ export const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
   apiVersion: '2024-12-18.acacia',
 });
 
-// Tier configuration matching your database schema
+// Simplified two-tier configuration
 export const TIER_CONFIG = {
-  explorer: {
-    name: 'Explorer',
-    price: 9.99,
-    monthlyLimit: 50,
+  free: {
+    name: 'Free',
+    price: 0,
+    monthlyLimit: 30,
     features: [
-      'Up to 50 questions per month',
-      'Access to basic AI coding help',
-      'Community support',
-      'Email support'
+      'Browse unlimited Q&A solutions',
+      'Search existing knowledge base',
+      'Comment on all answers',
+      'Ask up to 30 questions per month'
     ],
-    stripePriceId: process.env.STRIPE_EXPLORER_PRICE_ID
+    stripePriceId: null
   },
-  builder: {
-    name: 'Builder',
-    price: 19.99,
-    monthlyLimit: 200,
+  pro: {
+    name: 'Pro',
+    price: 8.00,
+    monthlyLimit: 300,
     features: [
-      'Up to 200 questions per month',
-      'Advanced AI coding assistance',
+      'Everything in Free tier',
+      'Ask up to 300 questions per month',
       'Priority support',
-      'Search history access',
-      'Code review requests'
+      'Early access to new features'
     ],
-    stripePriceId: process.env.STRIPE_BUILDER_PRICE_ID
-  },
-  expert: {
-    name: 'Expert',
-    price: 49.99,
-    monthlyLimit: 1000,
-    features: [
-      'Up to 1000 questions per month',
-      'Expert-level AI assistance',
-      'VIP support',
-      'Advanced search features',
-      'Custom integrations',
-      'Team collaboration'
-    ],
-    stripePriceId: process.env.STRIPE_EXPERT_PRICE_ID
+    stripePriceId: process.env.STRIPE_PRO_PRICE_ID
   }
 };
 

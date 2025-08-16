@@ -156,6 +156,26 @@ export default async function BlogPage() {
     <>
       <StructuredData data={structuredData} />
       <div className="min-h-screen bg-gray-50">
+      {/* Navigation */}
+      <div className="border-b bg-white/80 backdrop-blur-sm">
+        <div className="container mx-auto px-4 py-4 flex items-center justify-between">
+          <div className="flex items-center space-x-6">
+            <Link href="/" className="flex items-center space-x-2">
+              <span className="text-xl font-bold text-gray-900">VibeCoding</span>
+            </Link>
+            <nav className="hidden md:flex items-center space-x-4">
+              <Link href="/" className="text-gray-600 hover:text-blue-600 font-medium transition-colors">
+                Home
+              </Link>
+              <span className="text-blue-600 font-medium">Blog</span>
+              <Link href="/subscription" className="text-gray-600 hover:text-blue-600 font-medium transition-colors">
+                Pricing
+              </Link>
+            </nav>
+          </div>
+        </div>
+      </div>
+
       {/* Header */}
       <div className="bg-white border-b">
         <div className="container mx-auto px-4 py-12 max-w-4xl">
