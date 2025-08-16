@@ -1,7 +1,13 @@
 import Anthropic from '@anthropic-ai/sdk';
 
+const anthropicKey = process.env.ANTHROPIC_API_KEY || 'placeholder-anthropic-key';
+
+if (!process.env.ANTHROPIC_API_KEY) {
+  console.warn('ANTHROPIC_API_KEY is not defined. Claude functionality will not work.');
+}
+
 const anthropic = new Anthropic({
-  apiKey: process.env.ANTHROPIC_API_KEY!,
+  apiKey: anthropicKey,
 });
 
 export interface ClaudeResponse {

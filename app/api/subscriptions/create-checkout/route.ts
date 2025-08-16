@@ -1,15 +1,15 @@
 // app/api/subscriptions/create-checkout/route.ts
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
-import { stripe, STRIPE_PRODUCTS } from '@/lib/stripe/config';
+import { stripe, TIER_CONFIG } from '@/lib/stripe';
 
 export async function POST(request: NextRequest) {
   try {
     const { tier } = await request.json();
     
-    if (!tier || !STRIPE_PRODUCTS[tier as keyof typeof STRIPE_PRODUCTS]) {
+    if (!tier || tier !== 'pro') {
       return NextResponse.json(
-        { error: 'Invalid subscription tier' },
+        { error: 'Invalid subscription tier. Only pro tier is available.' },
         { status: 400 }
       );
     }
@@ -52,7 +52,7 @@ export async function POST(request: NextRequest) {
       payment_method_types: ['card'],
       line_items: [
         {
-          price: STRIPE_PRODUCTS[tier as keyof typeof STRIPE_PRODUCTS].priceId,
+          price: TIER_CONFIG.pro.stripePriceId,
           quantity: 1,
         },
       ],

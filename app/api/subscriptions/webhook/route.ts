@@ -1,6 +1,6 @@
 // app/api/subscriptions/webhook/route.ts
 import { NextRequest, NextResponse } from 'next/server';
-import { stripe } from '@/lib/stripe/config';
+import { stripe } from '@/lib/stripe';
 import db from '@/lib/db';
 import Stripe from 'stripe';
 
@@ -81,7 +81,7 @@ async function handleSubscriptionChange(subscription: Stripe.Subscription) {
       tier,
       subscription.status,
       new Date((subscription as unknown as { current_period_end: number }).current_period_end * 1000),
-      tier === 'explorer' ? 5 : -1, // -1 = unlimited
+      tier === 'free' ? 30 : 300, // Updated limits for free/pro
       subscription.id,
       userId
     ]);
@@ -128,10 +128,10 @@ async function handleSubscriptionDeleted(subscription: Stripe.Subscription) {
     // Revert user to free tier
     await db.query(`
       UPDATE users 
-      SET tier = 'explorer', 
+      SET tier = 'free', 
           subscription_status = 'canceled',
           subscription_expires_at = NULL,
-          monthly_limit = 5,
+          monthly_limit = 30,
           subscription_id = NULL
       WHERE id = $1
     `, [userId]);
